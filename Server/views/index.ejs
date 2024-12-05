@@ -8,14 +8,24 @@
 <body>
     <h1>Todo List</h1>
     <h3>Enter your blog here</h3>
-    <form action="" method="post">
-        <label for="" name="ToDO Number 1">One</label>
-        <input type="text" name="ToDo number 2" id=""> 
-        <label for="" name="ToDo Number 2">Two</label>
-        <input type="text" name="ToDO Number 2" id="">
+    <form action="/submit" method="post">
+        <label for="" name="ToDONumber1">One</label>
+        <input type="text" name="ToDoNumber1" id=""> 
+        <label for="" name="ToDoNumber2">Two</label>
+        <input type="text" name="ToDONumber2" id="">
         <label for="" name="Textarea">Textarea</label>
         <textarea name="Textarea" id=""></textarea>
-        <button type="submit"></button>
+        <button type="submit">Submit</button>
     </form>
+    <hr>
+    <%if(locals.Number1){%>
+        <h2><%=Number1 %></h2>
+    <%  }%>
+    <%if(locals.Number2){%>
+        <h2><%=Number2 %></h2>
+    <%  }%>
+    <%if(locals.text){%>
+        <h2><%=text %></h2>
+    <%  }%>
 </body>
 </html>
