@@ -11,19 +11,21 @@
     <form action="/submit" method="post">
         <label for="ToDONumber1">One</label>
         <input type="text" name="ToDoNumber1" id=""> 
-        <label for="ToDoNumber2">Two</label>
+        <!-- <label for="ToDoNumber2">Two</label>
         <input type="text" name="ToDONumber2" id="">
         <label for="Textarea">Textarea</label>
-        <textarea name="Textarea" id=""></textarea>
+        <textarea name="Textarea" id=""></textarea> -->
         <button type="submit">Submit</button>
     </form>
     <hr>
-    <%if(locals.Number1 && !locals.Number2 && !locals.text){%>
-        <h2><%=Number1 %></h2>
-    <%  }else if(locals.Number1 && locals.Number2 && !locals.text){%>
-        <h2><%=Number2 %> <%= Number1 %></h2>
-    <%  }else if(locals.text && locals.Number1 && locals.Number2){%>
-        <h2><%=text %></h2>
+    <% if(locals.List && List.length>0){%>
+        <!-- <h2><--%= List %></h2> -->
+        <ul>
+        <% List.forEach(item => { %>
+            <li><%= item %></li>
+        <% }) %>
+        </ul>
+
     <%  }%>
 </body>
 </html>

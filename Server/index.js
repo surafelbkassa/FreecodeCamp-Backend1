@@ -2,24 +2,22 @@ import express from "express";
 import bodyParser from "body-parser";
 const app=express();
 const port=3000;
+const LIST=[];
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static('public'));
-
+app.set("view engine","ejs");
 app.get('/',(req,res)=>{
-    res.render("index.ejs")
+    res.render("index.ejs",{List:LIST})
 })
 // app.get('/',(req,res)=>{
 //     res.render("index.ejs")
-// })
+// // })
+// LIST.push(req.body["ToDONumber1"])
 app.post('/submit',(req,res)=>{
     console.log(req.body);
-    res.render("index.ejs",{
-        Number1:req.body["ToDONumber1"],
-        Number2:req.body["ToDoNumber2"],
-        text:req.body["Textarea"]})
-})
-
+    LIST.push(req.body["ToDoNumber1"])
+    res.redirect("/");
+    })
 app.listen(port,()=>{
-    console.log(`Listening at port ${port}`);
-    
+    console.log(`Server is running at port ${port}`)
 })
