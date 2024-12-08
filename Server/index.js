@@ -4,15 +4,11 @@ const app=express();
 const port=3000;
 const LIST=[];
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(express.static('public'));
+app.use(express.static('public'));
 app.set("view engine","ejs");
 app.get('/',(req,res)=>{
     res.render("index.ejs",{List:LIST})
 })
-// app.get('/',(req,res)=>{
-//     res.render("index.ejs")
-// // })
-// LIST.push(req.body["ToDONumber1"])
 app.post('/submit',(req,res)=>{
     console.log(req.body);
     LIST.push(req.body["ToDoNumber1"])
