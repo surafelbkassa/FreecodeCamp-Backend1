@@ -30,10 +30,11 @@
     <% if(locals.List && List.length>0){%>
         <!-- <h2><--%= List %></h2> -->
         <ul>
+            <li>
         <% List.forEach((item,index) => { %>
             <%=item  %><button class="delete-btn" data-index="<%= index %>">Delete</button>
         <!-- to delete i first have to give individual id o each item in the list -->
-        <% }) %>
+        <% }) %></li>
         </ul>
 
     <%  }%>
